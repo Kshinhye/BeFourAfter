@@ -35,9 +35,9 @@
 			<c:choose>
 				<c:when test="${empty id }">
 					<a class="btn btn-outline-primary btn-sm me-2"
-						href="">회원가입</a>
+						href="${pageContext.request.contextPath}/users/signup_form.do">회원가입</a>
 					<a class="btn btn-outline-success btn-sm me-2"
-						href="">로그인</a>
+						href="${pageContext.request.contextPath}/users/loginform.do">로그인</a>
 				</c:when>
 				<c:otherwise>
 					<span class="navbar-text me-2"> <a
