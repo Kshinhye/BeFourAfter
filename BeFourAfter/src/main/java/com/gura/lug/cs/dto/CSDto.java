@@ -12,12 +12,12 @@ public class CSDto {
 	private int prevNum;
 	private int nextNum;
 	private String isSecret;
-	private String reserveType;
+	private String reservetype;
 	
 	public CSDto() {}
 
 	public CSDto(int num, String writer, String title, String content, int viewCount, String regdate, int startRowNum,
-			int endRowNum, int prevNum, int nextNum, String isSecret, String reserveType) {
+			int endRowNum, int prevNum, int nextNum, String isSecret, String reservetype) {
 		super();
 		this.num = num;
 		this.writer = writer;
@@ -30,7 +30,7 @@ public class CSDto {
 		this.prevNum = prevNum;
 		this.nextNum = nextNum;
 		this.isSecret = isSecret;
-		this.reserveType = reserveType;
+		this.reservetype = reservetype;
 	}
 
 	public int getNum() {
@@ -121,12 +121,12 @@ public class CSDto {
 		this.isSecret = isSecret;
 	}
 
-	public String getReserveType() {
-		return reserveType;
+	public String getReservetype() {
+		return reservetype;
 	}
 
-	public void setReserveType(String reserveType) {
-		this.reserveType = reserveType;
+	public void setReservetype(String reservetype) {
+		this.reservetype = reservetype;
 	}
 	
 }

@@ -19,15 +19,15 @@
 				<label for="title">제목</label>
 				<input class="form-control" type="text" name="title" id="title" value="${dto.title }"/>
 			</div>
-			<div>
-				<label for="reserveType">문의 서비스 항목</label>
-		      	<select class="form-select" name="reserveType" id="reserveType">
-		      		<option value="ent" ${dto.reserveType eq 'ent' ? 'selected' : '' }>입국 서비스</option>
-		      		<option value="leave" ${dto.reserveType eq 'leave' ? 'selected' : '' }>출국 서비스</option>
-		      		<option value="delivery" ${dto.reserveType eq 'delivery' ? 'selected' : '' }>배달 서비스</option>
-		      		<option value="etc" ${dto.reserveType eq 'etc' ? 'selected' : '' }>기타</option>
+			<div class="mb-3">
+		        <label for="reservetype">서비스 항목</label>
+		      	<select name="reservetype" id="reservetype" class="form-select">
+		      		<option value="ent" ${dto.reservetype eq "ent" ? "selected" : ""}>입국 서비스 예약</option>
+		      		<option value="leave" ${dto.reservetype eq "leave" ? "selected" : ""}>출국 서비스 예약</option>
+		      		<option value="delivery" ${dto.reservetype eq "delivery" ? "selected" : ""}>배송 서비스 문의</option>
+		      		<option value="etc" ${dto.reservetype eq "etc" ? "selected" : "" }>기타 서비스 문의</option>
 		      	</select>
-			</div>
+		    </div>
 			<div class="mb-3">
 				<label for="content">내용</label>
 				<textarea class="form-control" style="height:300px;" name="content" id="content">${dto.content }</textarea>
