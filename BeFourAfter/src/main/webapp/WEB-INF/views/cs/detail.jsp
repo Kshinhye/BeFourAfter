@@ -25,7 +25,7 @@
 	      	<c:otherwise>
 				<tr>
 					<th style="width:100px;">제목</th>
-					<td colspan="3">${dto.title }</td>
+					<td colspan="5">${dto.title }</td>
 	    		</tr>
 	      	</c:otherwise>
 	      </c:choose>
@@ -35,9 +35,27 @@
 	         <td>${dto.writer }</td>
 	         <th style="width:100px;">등록일</th>
 	         <td>${dto.regdate }</td>
+	         <th style="width:100px;">문의 내용</th>
+	         <c:choose>
+	         	<c:when test="${dto.reserveType == 'ent'}">
+		         	<td>[입국 예약]</td>	         	
+	         	</c:when>
+	         	<c:when test="${dto.reserveType == 'leave'}">
+		         	<td>[출국 예약]</td>	         	
+	         	</c:when>
+	         	<c:when test="${dto.reserveType == 'delivery'}">
+		         	<td>[배송 예약]</td>	         	
+	         	</c:when>
+	         	<c:when test="${dto.reserveType == 'etc'}">
+		         	<td>[기타]</td>	         	
+	         	</c:when>
+	         	<c:otherwise>
+					<td>[선택안함]</td>									
+				</c:otherwise>
+	         </c:choose>
 	      </tr>	
 	      <tr style="height:300px;">
-	         <td colspan="4">
+	         <td colspan="6">
 	            <div >${dto.content }</div>
 	         </td>
 	      </tr>
@@ -49,26 +67,6 @@
 	         <span><a class="btn text-decoration-none text-dark btn-outline-secondary" href="${pageContext.request.contextPath}/cs/delete.do?num=${dto.num }"><i class="bi bi-trash3"></i>삭제</a></span>
 	      </c:if>
 	   </div>
-	   <table class="table">
-		   	<c:if test="${dto.prevNum ne 0 }">
-				<tr><td>
-					<a class="text-decoration-none text-dark" href="detail.do?num=${dto.prevNum }&keyword=${encodedK }&condition=${condition }"><i class="bi bi-caret-up-fill"></i>다음글</a>
-				</td></tr>
-			</c:if>
-			<c:if test="${dto.nextNum ne 0 }">
-				<tr><td>
-					<a class="text-decoration-none text-dark"href="detail.do?num=${dto.nextNum }&keyword=${encodedK }&condition=${condition }"><i class="bi bi-caret-down-fill"></i>이전글</a>
-				</td></tr>
-			</c:if>
-			<c:if test="${ not empty keyword }">
-			<p>	
-				<strong>${condition }</strong> 조건, 
-				<strong>${keyword }</strong> 검색어로 검색된 내용 자세히 보기 
-			</p>
-		</c:if>
-	   </table>
-	   댓글
-	   
 	   
 </div>
 </body>

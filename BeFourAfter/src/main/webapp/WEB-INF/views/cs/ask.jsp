@@ -53,7 +53,7 @@
 					</p>
 				</c:if>
 			</div>
-			<br /> <a class="btn" href="insertform.do">새글 작성</a>
+			<br />
 			<table class="table table-hover">
 				<thead>
 					<tr class="text-center">
@@ -110,6 +110,7 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			<br /> <a class="btn" href="insertform.do">새글 작성</a>
 		</div>
 		<div>
 			<ul class="pagination justify-content-center">
