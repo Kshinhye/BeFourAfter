@@ -16,7 +16,7 @@
 	integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"/>
 </head>
 <body>
 	<!-- 네비바 -->
@@ -58,6 +58,7 @@
 				<thead>
 					<tr class="text-center">
 						<th scope="col">글번호</th>
+						<th scope="col">문의내용</th>
 						<th scope="col">제목</th>
 						<th scope="col">작성자</th>
 						<th scope="col">조회수</th>
@@ -69,18 +70,35 @@
 						<tr>
 							<td class="text-center" scope="row">${tmp.num }</td>
 							<c:choose>
+								<c:when test="${tmp.reserveType == 'ent'}">
+									<td class="text-center text-muted" scope="row">[입국 예약]</td>									
+								</c:when>
+								<c:when test="${tmp.reserveType == 'leave'}">
+									<td class="text-center text-muted" scope="row">[출국 예약]</td>									
+								</c:when>
+								<c:when test="${tmp.reserveType == 'delivery'}">
+									<td class="text-center text-muted" scope="row">[배송 예약]</td>									
+								</c:when>
+								<c:when test="${tmp.reserveType == 'etc'}">
+									<td class="text-center text-muted" scope="row">[기타]</td>									
+								</c:when>
+								<c:otherwise>
+									<td class="text-center text-muted" scope="row">[선택안함]</td>									
+								</c:otherwise>
+							</c:choose>
+							<c:choose>
 								<c:when test="${tmp.isSecret eq 'Yes' && tmp.writer ne id }">
-									<td class="text-muted"><i class="bi bi-lock-fill"></i> 비밀글
-										입니다.</td>
+									<td class="text-muted"><i class="bi bi-lock-fill"></i> 비밀글입니다.</td>
 								</c:when>
 								<c:when test="${tmp.isSecret eq 'Yes' && tmp.writer eq id }">
-									<td><i class="bi bi-lock-fill"></i> <a
-										class="text-decoration-none text-dark"
+									<td><i class="bi bi-lock-fill"></i>
+										<a class="text-decoration-none text-dark"
 										href="detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}">${tmp.title }</a>
 									</td>
 								</c:when>
 								<c:otherwise>
-									<td><a class="text-decoration-none text-dark"
+									<td>
+										<a class="text-decoration-none text-dark"
 										href="detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}">${tmp.title }</a>
 									</td>
 								</c:otherwise>

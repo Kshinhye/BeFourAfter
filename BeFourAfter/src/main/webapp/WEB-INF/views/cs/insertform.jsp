@@ -20,6 +20,16 @@
 		         <input class="form-control" type="text" name="title" id="title"/>
 		      </div>
 		      <div class="mb-3">
+		      	<label for="reserveType">문의 서비스 항목</label>
+		      	<select class="form-select" name="reserveType" id="reserveType">
+		      		<option value="" selected disabled>문의 내용을 선택해주세요</option>
+		      		<option value="ent">입국 서비스</option>
+		      		<option value="leave">출국 서비스</option>
+		      		<option value="delivery">배달 서비스</option>
+		      		<option value="etc">기타</option>
+		      	</select>
+		      </div>
+		      <div class="mb-3">
 		         <label for="content">내용</label>
 		         <textarea class="form-control" style="height:300px;" name="content" id="content"></textarea>
 		      </div>
